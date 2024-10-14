@@ -1,0 +1,47 @@
+{
+    "version": 1,
+    "author": "EminentQuasar34",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "board-pi-pico-w", "id": "pico", "top": 150.35, "left": 137.95, "attrs": {} },
+      {
+        "type": "wokwi-tm1637-7segment",
+        "id": "wokwi-tm1637-7segment-0",
+        "top": 67.16,
+        "left": -117.77,
+        "attrs": {}
+      },
+      { "type": "wokwi-ky-040", "id": "wokwi-ky-040-0", "top": 251.3, "left": -77.6, "attrs": {} },
+      {
+        "type": "wokwi-hc-sr04",
+        "id": "wokwi-hc-sr04-0",
+        "top": -8.1,
+        "left": 216.7,
+        "attrs": { "distance": "75" }
+      }
+    ],
+    "connections": [
+      [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+      [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+      [ "pico:GP22", "pico:GP16", "green", [ "h-9.29", "v67.2", "h9.6" ] ],
+      [ "wokwi-tm1637-7segment-0:GND", "pico:GND.1", "black", [ "h19.2", "v28.8" ] ],
+      [ "pico:VBUS", "wokwi-tm1637-7segment-0:VCC", "green", [ "h9.91", "v-48" ] ],
+      [ "wokwi-hc-sr04-0:VCC", "pico:VBUS", "red", [ "v0" ] ],
+      [ "wokwi-tm1637-7segment-0:CLK", "pico:GP2", "green", [ "h0", "v-38.4", "h-192", "v124.8" ] ],
+      [
+        "wokwi-tm1637-7segment-0:DIO",
+        "pico:GP3",
+        "green",
+        [ "h9.6", "v-57.6", "h-211.2", "v153.6" ]
+      ],
+      [ "wokwi-hc-sr04-0:GND", "pico:GND.6", "black", [ "v0" ] ],
+      [ "wokwi-hc-sr04-0:TRIG", "pico:GP28", "green", [ "v0" ] ],
+      [ "wokwi-hc-sr04-0:ECHO", "pico:GP27", "green", [ "v0" ] ],
+      [ "wokwi-ky-040-0:VCC", "pico:VBUS", "red", [ "h76.8", "v-191.6", "h86.4" ] ],
+      [ "wokwi-ky-040-0:GND", "pico:GND.4", "black", [ "h57.6", "v29.56" ] ],
+      [ "wokwi-ky-040-0:CLK", "pico:GP8", "green", [ "h0" ] ],
+      [ "wokwi-ky-040-0:DT", "pico:GP9", "green", [ "h0" ] ],
+      [ "wokwi-ky-040-0:SW", "pico:GP10", "green", [ "h86.4", "v9.7" ] ]
+    ],
+    "dependencies": {}
+  }

@@ -1,0 +1,78 @@
+{
+    "version": 1,
+    "author": "EminentQuasar34",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "board-pi-pico-w", "id": "pico", "top": 255.95, "left": 99.55, "attrs": {} },
+      {
+        "type": "wokwi-photoresistor-sensor",
+        "id": "wokwi-photoresistor-sensor--0",
+        "top": 380.9,
+        "left": 378.7,
+        "rotate": 270,
+        "attrs": {}
+      },
+      {
+        "type": "wokwi-dht22",
+        "id": "wokwi-dht22--0",
+        "top": 144.3,
+        "left": 263.4,
+        "attrs": { "humidity": "55" }
+      },
+      {
+        "type": "wokwi-ntc-temperature-sensor",
+        "id": "wokwi-ntc-temperature-sensor--0",
+        "top": 434.6,
+        "left": -87,
+        "attrs": {}
+      },
+      {
+        "type": "board-ssd1306",
+        "id": "board-ssd1306--0",
+        "top": 329.54,
+        "left": -105.37,
+        "attrs": {}
+      },
+      {
+        "type": "wokwi-analog-joystick",
+        "id": "wokwi-analog-joystick--0",
+        "top": 495,
+        "left": 227.6,
+        "rotate": 180,
+        "attrs": {}
+      }
+    ],
+    "connections": [
+      [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+      [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+      [ "board-ssd1306--0:GND", "pico:GND.1", "black", [ "v0" ] ],
+      [ "board-ssd1306--0:SCL", "pico:GP5", "green", [ "v0" ] ],
+      [ "board-ssd1306--0:SDA", "pico:GP4", "green", [ "v0" ] ],
+      [ "board-ssd1306--0:VCC", "pico:3V3", "red", [ "v-105.6", "h259.35", "v57.6" ] ],
+      [ "wokwi-ntc-temperature-sensor--0:GND", "pico:GND.4", "black", [ "h38.4", "v-28.84" ] ],
+      [
+        "wokwi-ntc-temperature-sensor--0:VCC",
+        "pico:VBUS",
+        "red",
+        [ "h278.4", "v-201.6", "h-28.8" ]
+      ],
+      [ "wokwi-ntc-temperature-sensor--0:OUT", "pico:GP26", "green", [ "h326.4", "v-105.7" ] ],
+      [ "wokwi-dht22--0:VCC", "pico:VBUS", "red", [ "h-105.6", "v9.6" ] ],
+      [ "wokwi-dht22--0:GND", "pico:GND.7", "black", [ "v0" ] ],
+      [ "wokwi-dht22--0:SDA", "pico:GP28", "green", [ "v0" ] ],
+      [ "wokwi-photoresistor-sensor--0:VCC", "pico:VBUS", "red", [ "v-201.6", "h-240" ] ],
+      [ "wokwi-photoresistor-sensor--0:GND", "pico:GND.8", "black", [ "v-38.4", "h-202" ] ],
+      [ "wokwi-photoresistor-sensor--0:DO", "pico:GP22", "green", [ "v-28.8", "h-154.2", "v67.2" ] ],
+      [
+        "wokwi-analog-joystick--0:VCC",
+        "pico:VBUS",
+        "red",
+        [ "v-9.6", "h115.2", "v-364.8", "h-220.8" ]
+      ],
+      [ "wokwi-analog-joystick--0:VERT", "pico:GP20", "green", [ "v0" ] ],
+      [ "wokwi-analog-joystick--0:SEL", "pico:GP18", "green", [ "v0" ] ],
+      [ "wokwi-analog-joystick--0:GND", "pico:GND.5", "black", [ "v0" ] ],
+      [ "wokwi-analog-joystick--0:HORZ", "pico:GP27", "green", [ "v0" ] ]
+    ],
+    "dependencies": {}
+  }

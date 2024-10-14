@@ -1,0 +1,45 @@
+{
+    "version": 1,
+    "author": "EminentQuasar34",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "board-pi-pico-w", "id": "pico", "top": 92.75, "left": 89.95, "attrs": {} },
+      {
+        "type": "board-ssd1306",
+        "id": "board-ssd1306--0",
+        "top": 51.14,
+        "left": 201.83,
+        "attrs": {}
+      },
+      {
+        "type": "wokwi-buzzer",
+        "id": "wokwi-buzzer--0",
+        "top": 150.9,
+        "left": 225.3,
+        "rotate": 90,
+        "attrs": {}
+      },
+      {
+        "type": "wokwi-pir-motion-sensor",
+        "id": "wokwi-pir-motion-sensor--0",
+        "top": 223.08,
+        "left": -72.3,
+        "rotate": 270,
+        "attrs": {}
+      }
+    ],
+    "connections": [
+      [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+      [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+      [ "wokwi-pir-motion-sensor--0:VCC", "pico:VBUS", "red", [ "h19.2", "v-201.6", "h124.49" ] ],
+      [ "wokwi-pir-motion-sensor--0:GND", "pico:GND.1", "black", [ "h28.8", "v-9.34" ] ],
+      [ "board-ssd1306--0:GND", "pico:GND.8", "black", [ "v-19.2", "h-48", "v76.8" ] ],
+      [ "board-ssd1306--0:VCC", "pico:3V3", "red", [ "v-38.4", "h-67.05", "v124.8" ] ],
+      [ "wokwi-pir-motion-sensor--0:OUT", "pico:GP6", "green", [ "h28.8", "v28.94" ] ],
+      [ "board-ssd1306--0:SCL", "pico:GP5", "green", [ "v-57.6", "h-191.7", "v153.6" ] ],
+      [ "board-ssd1306--0:SDA", "pico:GP4", "green", [ "v-67.2", "h-211.13", "v182.4" ] ],
+      [ "wokwi-buzzer--0:1", "pico:GND.7", "green", [ "h-28.8", "v-9.6" ] ],
+      [ "wokwi-buzzer--0:2", "pico:GP8", "green", [ "h-28.8", "v124.4", "h-124.8", "v-115.2" ] ]
+    ],
+    "dependencies": {}
+  }
